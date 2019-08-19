@@ -36,7 +36,7 @@
             ?>
 
             <!--sidebar checkboxes-->
-            <div class="col-md-3">
+            <div class="col-sm-3 ">
                 <p class="h3"><strong>Select Reports to Include:</strong></p>
                 <form>
                     <?php
@@ -52,7 +52,7 @@
             </div>
 
             <!--display of sample reports-->
-            <div class="col-md-9  col">
+            <div class="col-sm-9 border_separator_left">
                 TEST TEST
             </div>
 

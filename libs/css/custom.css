@@ -3,13 +3,25 @@
     margin: 0 0 1em 0;
     overflow: hidden;
 }
- 
+
 /* some changes in bootstrap modal */
 .modal-body {
     padding: 20px 20px 0px 20px !important;
     text-align: center !important;
 }
- 
+
 .modal-footer{
     text-align: center !important;
+}
+
+.border_separator_left {
+    border-left:  thick solid #cccccc;
+}
+
+@media (max-width: 768px) {
+    .border_separator_left {
+        border-top:  thick solid #cccccc;
+        border-left:  none;
+    }
+
 }
