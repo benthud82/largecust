@@ -1,13 +1,14 @@
 <?php
-class Category{
+class Report{
  
     // database connection and table name
     private $conn;
-    private $table_name = "categories";
+    private $table_name = "qtr_reports";
  
     // object properties
-    public $id;
-    public $name;
+    public $report_id;
+    public $report_title;
+    public $report_desc;
  
     public function __construct($db){
         $this->conn = $db;
@@ -17,11 +18,11 @@ class Category{
     function read(){
         //select all data
         $query = "SELECT
-                    id, name
+                    report_id, report_title, report_desc
                 FROM
                     " . $this->table_name . "
                 ORDER BY
-                    name";  
+                    report_id";  
  
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();

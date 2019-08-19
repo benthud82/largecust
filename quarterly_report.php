@@ -22,15 +22,25 @@
 
             <?php
             include_once 'config/database.php';
-            include_once 'objects/category.php';
+            include_once 'objects/reportoptions.php';
 
             // get database connection
             $database = new Database();
             $db = $database->getConnection();
-            // show page header
-            echo "<div class='page-header'>
-                <h1>{$page_title}</h1>
-            </div>";
+
+            //pass connection to Report class
+            $product = new Report($db);
+
+            //call read method in Report class
+            $stmt = $product->read();
+
+            //loop through and create checkbox options
+            while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                extract($row_category);
+                echo "<option value='{$report_id}'>{$report_title}</option>";
+            }
+
+
             ?>
         </div>
     </body>
