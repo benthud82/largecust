@@ -33,15 +33,23 @@
 
             //call read method in Report class
             $stmt = $product->read();
-
-            //loop through and create checkbox options
-            while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                extract($row_category);
-                echo "<option value='{$report_id}'>{$report_title}</option>";
-            }
-
-
             ?>
+            <div class="col-md-3">
+                <p style="font-size:12px;"><strong>Select Reports to Include:</strong></p>
+                <form>
+
+                    <?php
+                    //loop through and create checkbox options
+                    while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        extract($row_category);
+                        echo " <label style='font-size:12px;'>
+                                        <input type='checkbox' name='rec-type' value='main' id='{$report_id}' /> {$report_title}</label>
+                                     <br>";
+//                        echo "<option value='{$report_id}'>{$report_title}</option>";
+                    }
+                    ?>
+                </form>
+            </div>
         </div>
     </body>
 </html>
