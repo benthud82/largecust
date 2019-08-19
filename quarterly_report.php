@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title><?php echo $page_title; ?></title>
+        <title>Admin - Qtr Report</title>
 
         <!-- Latest compiled and minified Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -18,7 +18,7 @@
     <body>
 
         <!-- container -->
-        <div class="container">
+        <div class="container-fluid">
 
             <?php
             include_once 'config/database.php';
@@ -34,22 +34,30 @@
             //call read method in Report class
             $stmt = $product->read();
             ?>
-            <div class="col-md-3">
-                <p style="font-size:12px;"><strong>Select Reports to Include:</strong></p>
-                <form>
 
+            <!--sidebar checkboxes-->
+            <div class="col-md-3">
+                <p class="h3"><strong>Select Reports to Include:</strong></p>
+                <form>
                     <?php
                     //loop through and create checkbox options
                     while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row_category);
                         echo " <label style='font-size:12px;'>
-                                        <input type='checkbox' name='rec-type' value='main' id='{$report_id}' /> {$report_title}</label>
+                                        <input type='checkbox' name='rec-type' value='main' id='$report_id'/> $report_title</label>
                                      <br>";
-//                        echo "<option value='{$report_id}'>{$report_title}</option>";
                     }
                     ?>
                 </form>
             </div>
+
+            <!--display of sample reports-->
+            <div class="col-md-9  col">
+                TEST TEST
+            </div>
+
+            <!--containter-->
         </div>
+
     </body>
 </html>
