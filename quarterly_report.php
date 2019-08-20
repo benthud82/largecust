@@ -4,10 +4,6 @@ $page_title = "Admin - Qtr Report";
 include 'layout_header.php';
 include_once 'config/database.php';
 include_once 'objects/report_options.php';
-include_once 'objects/report_display.php';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 // get database connection
 $database = new Database();
@@ -24,6 +20,7 @@ $stmt_display = $reportdisplay->read_display();
 
 
 <div class="row top-spacer" >
+
     <!--sidebar checkboxes-->
     <div class="col-sm-3 ">
         <p class="h3"><strong>Select Reports to Include:</strong></p>
@@ -53,7 +50,7 @@ $stmt_display = $reportdisplay->read_display();
                     <div class="col-sm-4">
                         <div class="in-middle">
                             <h1 style="text-align: right;"><?php echo $report_title ?></h1>
-                            <p style="text-align: right;"><?php echo $report_desc ?></p>
+                            <div style="text-align: right;"><?php echo $report_desc ?></div>
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -67,8 +64,10 @@ $stmt_display = $reportdisplay->read_display();
 
     </div>
 
+</div>
 
-
+<div style="text-align: right;">
+  This is some text!
 </div>
 
 <?php
