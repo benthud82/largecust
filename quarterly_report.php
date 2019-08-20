@@ -3,28 +3,35 @@
 $page_title = "Admin - Qtr Report";
 include 'layout_header.php';
 include_once 'config/database.php';
-include_once 'objects/reportoptions.php';
+include_once 'objects/report_options.php';
+include_once 'objects/report_display.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
 
 //pass connection to Report class
-$product = new Report($db);
+$reportlist = new Report_list($db);
+$reportdisplay = new Report_display($db);
 
 //call read method in Report class
-$stmt = $product->read();
+$stmt_list = $reportlist->read_list();
+$stmt_display = $reportdisplay->read_display();
 ?>
 
-<!--sidebar checkboxes-->
-<div class="row">
+
+<div class="row top-spacer" >
+    <!--sidebar checkboxes-->
     <div class="col-sm-3 ">
         <p class="h3"><strong>Select Reports to Include:</strong></p>
         <form>
             <?php
             //loop through and create checkbox options
-            while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                extract($row_category);
+            while ($row_list = $stmt_list->fetch(PDO::FETCH_ASSOC)) {
+                extract($row_list);
                 echo " <label style='font-size:12px;'>
                                         <input type='checkbox' name='rec-type' value='main' id='$report_id'/> $report_title</label>
                                      <br>";
@@ -35,20 +42,33 @@ $stmt = $product->read();
 
     <!--display of sample reports-->
     <div class="col-sm-9 border_separator_left">
-        <div class="text_jpeg_group">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="in-middle">
-                        <h1 style="text-align: right;">Fully Automated Dashboard</h1>
-                        <p style="text-align: right;">Utilizing your data, dashboard updates based on your timing to provide real-time trends and results.</p>
+
+        <?php
+        //loop through and create checkbox options
+        while ($row_display = $stmt_display->fetch(PDO::FETCH_ASSOC)) {
+            extract($row_display);
+            ?>
+            <div class="text_jpeg_group border_separator_bottom">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="in-middle">
+                            <h1 style="text-align: right;"><?php echo $report_title ?></h1>
+                            <p style="text-align: right;"><?php echo $report_desc ?></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="<?php echo $report_imgpath ?>" style="width:100%;">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <img src="images/smashedpotatoes.jpg" style="width:100%;">
-                </div>
             </div>
-        </div>
+
+        <?php }
+        ?>
+
     </div>
+
+
+
 </div>
 
 <?php

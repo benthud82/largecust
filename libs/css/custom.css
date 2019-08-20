@@ -1,3 +1,6 @@
+.top-spacer{
+    margin-top: 20px;
+}
 
 .right-button-margin{
     margin: 0 0 1em 0;
@@ -17,8 +20,11 @@
 .border_separator_left {
     border-left:  thick solid #cccccc;
 }
+.border_separator_bottom{
+     border-bottom: 2px groove;
+}
 
-@media (max-width: 768px) {
+@media (max-width: 575px) {
     .border_separator_left {
         border-top:  thick solid #cccccc;
         border-left:  none;
