@@ -53,8 +53,22 @@
 
             <!--display of sample reports-->
             <div class="col-sm-9 border_separator_left">
-                TEST TEST
+                <div class="text_jpeg_group">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="in-middle">
+                                <h1 style="text-align: right;">Fully Automated Dashboard</h1>
+                                <p style="text-align: right;">Utilizing your data, dashboard updates based on your timing to provide real-time trends and results.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <img src="images/cilantrolimechicken.jpg" style="width:100%;">
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
 
             <!--containter-->
         </div>
