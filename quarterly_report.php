@@ -4,6 +4,7 @@ $page_title = "Admin - Qtr Report";
 include 'layout_header.php';
 include_once 'config/database.php';
 include_once 'objects/report_options.php';
+include 'objects/summblob.php';
 
 // get database connection
 $database = new Database();
@@ -12,10 +13,12 @@ $db = $database->getConnection();
 //pass connection to Report class
 $reportlist = new Report_list($db);
 $reportdisplay = new Report_display($db);
+$reportsummblob = new Summary_blob($db);
 
 //call read method in Report class
 $stmt_list = $reportlist->read_list();
 $stmt_display = $reportdisplay->read_display();
+$stmt_summblob = $reportsummblob->read_blobs();
 ?>
 
 
@@ -31,7 +34,7 @@ $stmt_display = $reportdisplay->read_display();
                 extract($row_list);
                 echo " <label style='font-size:12px;'>
                                         <input type='checkbox' name='rec-type' value='main' id='$report_id'/> $report_title</label>
-                                     <br>";
+                             <br>";
             }
             ?>
         </form>
@@ -61,22 +64,30 @@ $stmt_display = $reportdisplay->read_display();
                     <!--include modal if necessary-->
                     <div class="col-sm-12">
                         <?php
-                        if($report_modal == 1){
-                            echo "<a href='index.php' class='btn btn-danger pull-right'>{$modal_buttontext}</a>";
+                        if ($report_modal == 1) {
+                            echo "<div class='btn btn-danger pull-right' id='tgl_{$modal_name}'>{$modal_buttontext}</div>";
                         }
                         ?>
                     </div>
                 </div>
             </div>
 
-        <?php }
-        ?>
+        <?php } ?>
+
 
     </div>
 
+    <!--modal includes-->
+    <?php include 'modals/modal_summblob.php' ?>;
 </div>
 
+<script>
+            $(document).on("click", "#tgl_modal_summblob", function (e) {
+                $('#modal_summblob').modal('toggle');
+            });
+</script>
+
 <?php
-// footer
 include_once "layout_footer.php";
 ?>
+

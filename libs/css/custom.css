@@ -29,14 +29,11 @@
         border-top:  thick solid #cccccc;
         border-left:  none;
     }
-
 }
 
 .text_jpeg_group{
     padding-top: 50px;
     padding-bottom: 50px;
-
-
 }
 
 .in-middle{
@@ -46,8 +43,14 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 h1 { font-family: "Josefin Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
 h3 { font-family: "Josefin Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } 
 p { font-family: "Josefin Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
 blockquote { font-family: "Josefin Sans"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
 pre { font-family: "Josefin Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+.btn{cursor: pointer;}
+.modal-header{display: block!important;}
+.modal-title{float: left;}
+.modal-header .close{float: right;}
+.control-label{float: left;}
