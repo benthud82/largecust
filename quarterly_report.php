@@ -66,10 +66,6 @@ $stmt_display = $reportdisplay->read_display();
 
 </div>
 
-<div style="text-align: right;">
-  This is some text!
-</div>
-
 <?php
 // footer
 include_once "layout_footer.php";
