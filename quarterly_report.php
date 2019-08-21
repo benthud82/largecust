@@ -14,11 +14,13 @@ $db = $database->getConnection();
 $reportlist = new Report_list($db);
 $reportdisplay = new Report_display($db);
 $reportsummblob = new Summary_blob($db);
+$summblob_post = new Summblob_post($db);
 
 //call read method in Report class
 $stmt_list = $reportlist->read_list();
 $stmt_display = $reportdisplay->read_display();
 $stmt_summblob = $reportsummblob->read_blobs();
+//$stmt_blobpost = $summblob_post->post_summblob();
 ?>
 
 
