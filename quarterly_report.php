@@ -57,6 +57,16 @@ $stmt_display = $reportdisplay->read_display();
                         <img src="<?php echo $report_imgpath ?>" style="width:100%;">
                     </div>
                 </div>
+                <div class="row">
+                    <!--include modal if necessary-->
+                    <div class="col-sm-12">
+                        <?php
+                        if($report_modal == 1){
+                            echo "<a href='index.php' class='btn btn-danger pull-right'>{$modal_buttontext}</a>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
 
         <?php }

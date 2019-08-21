@@ -31,19 +31,24 @@ class Report_list {
     }
 
 }
+
 class Report_display extends Report_list {
 
     public $report_imgpath;
-    
-    
+    public $report_modal;
+    public $modal_id;
+    public $modal_name;
+    public $modal_buttontext;
+    protected $table_name_join = "reports_modal";
 
     // used by select drop-down list
     function read_display() {
         //select all data
         $query = "SELECT
-                    report_id, report_title, report_desc, report_imgpath
+                    report_id, report_title, report_desc, report_imgpath, report_modal, modal_id, modal_name, modal_buttontext
                 FROM
                     " . $this->table_name . "
+                        JOIN   " . $this->table_name_join . "
                 ORDER BY
                     report_id";
 
@@ -54,6 +59,5 @@ class Report_display extends Report_list {
     }
 
 }
-
 
 ?>
