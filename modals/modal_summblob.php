@@ -8,16 +8,8 @@
             </div>
             <?php
             // if the form was submitted - PHP OOP CRUD Tutorial
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-                // set product property values
-                if (empty($_POST["text_summblob"]) || $_POST["text_summblob"] == 't') {
-                    $nameErr = "Name is required";
-                } else {
-                    $summblob_post->blob_blob = $_POST['text_summblob'];
-                }
-
-
+            if ($_POST) {
+                $summblob_post->blob_blob = $_POST['text_summblob'];
                 $summblob_post->blob_qtr = $_POST['qtr_id'];
 
                 //post method
@@ -46,7 +38,7 @@
 
 
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Action Summary:<span class="error">* <?php echo $nameErr; ?></span></label>
+                        <label class="col-md-3 control-label">Action Summary:</label>
                         <div class="col-md-9">
                             <textarea autofocus rows="5" placeholder="" class="form-control" id="text_summblob" name="text_summblob" tabindex="1"></textarea>
                         </div>

@@ -44,6 +44,10 @@ class Summary_blob {
         // posted values
         $this->blob_blob = htmlspecialchars(strip_tags($this->blob_blob));
         $this->blob_qtr = htmlspecialchars(strip_tags($this->blob_qtr));
+        
+        if($this->blob_qtr == 'Select quarter...'){
+            return false;
+        }
 
         // to get time-stamp for 'created' field
         $this->blob_date = date('Y-m-d H:i:s');

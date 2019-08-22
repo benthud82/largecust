@@ -22,7 +22,6 @@ $quarters = new Quarters($db);
 $stmt_list = $reportlist->read_list();
 $stmt_display = $reportdisplay->read_display();
 $stmt_summblob = $reportsummblob->read_blobs();
-
 ?>
 
 
@@ -37,7 +36,7 @@ $stmt_summblob = $reportsummblob->read_blobs();
             while ($row_list = $stmt_list->fetch(PDO::FETCH_ASSOC)) {
                 extract($row_list);
                 echo " <label style='font-size:12px;'>
-                                        <input type='checkbox' name='rec-type' value='main' id='$report_id'/> $report_title</label>
+                                        <input checked class='checkbox_hideshow' type='checkbox' name='rec-type' value='main' id='$report_id'/> $report_title</label>
                              <br>";
             }
             ?>
@@ -52,7 +51,7 @@ $stmt_summblob = $reportsummblob->read_blobs();
         while ($row_display = $stmt_display->fetch(PDO::FETCH_ASSOC)) {
             extract($row_display);
             ?>
-            <div class="text_jpeg_group border_separator_bottom">
+            <div class="text_jpeg_group border_separator_bottom" id="displaydiv_<?php echo $report_id ?>">
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="in-middle">
@@ -86,13 +85,6 @@ $stmt_summblob = $reportsummblob->read_blobs();
 </div>
 
 <script>
-    $(document).on("click", "#tgl_modal_summblob", function (e) {
-        $('#modal_summblob').modal('toggle');
-    });
-
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
 
 </script>
 
