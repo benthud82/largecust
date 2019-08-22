@@ -27,14 +27,10 @@ class Summary_blob {
 
         $stmt_summblob = $this->conn->prepare($query);
         $stmt_summblob->execute();
-
         return $stmt_summblob;
     }
 
-}
-
-class Summblob_post extends Summary_blob {
-public $blob_qtr;
+    //post blob to table
     function post_summblob() {
 
         //write query
@@ -47,13 +43,13 @@ public $blob_qtr;
 
         // posted values
         $this->blob_blob = htmlspecialchars(strip_tags($this->blob_blob));
-//        $this->blob_qtr = htmlspecialchars(strip_tags($this->blob_qtr));
+        $this->blob_qtr = htmlspecialchars(strip_tags($this->blob_qtr));
+
         // to get time-stamp for 'created' field
-        $this->blob_date = date('Y-m-d');
+        $this->blob_date = date('Y-m-d H:i:s');
 
         //auto id
         $this->idsummary_blob = 0;
-        $this->blob_qtr = '2019_Q4';
 
         // bind values 
         $stmt_blobpost->bindParam(":idsummary_blob", $this->idsummary_blob);
@@ -62,7 +58,8 @@ public $blob_qtr;
         $stmt_blobpost->bindParam(":blob_qtr", $this->blob_qtr);
 
         if ($stmt_blobpost->execute()) {
-            return true;
+
+            
         } else {
             return false;
         }

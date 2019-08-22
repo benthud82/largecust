@@ -12,15 +12,14 @@ $db = $database->getConnection();
 
 //pass connection to Report class
 $reportlist = new Report_list($db);
-$reportdisplay = new Report_display($db);
+$reportdisplay = new Report_list($db);
 $reportsummblob = new Summary_blob($db);
-$summblob_post = new Summblob_post($db);
+$summblob_post = new Summary_blob($db);
 
 //call read method in Report class
 $stmt_list = $reportlist->read_list();
 $stmt_display = $reportdisplay->read_display();
 $stmt_summblob = $reportsummblob->read_blobs();
-//$stmt_blobpost = $summblob_post->post_summblob();
 ?>
 
 
@@ -84,9 +83,16 @@ $stmt_summblob = $reportsummblob->read_blobs();
 </div>
 
 <script>
-            $(document).on("click", "#tgl_modal_summblob", function (e) {
-                $('#modal_summblob').modal('toggle');
-            });
+    $(document).on("click", "#tgl_modal_summblob", function (e) {
+        $('#modal_summblob').modal('toggle');
+    });
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
+</script>
+
 </script>
 
 <?php

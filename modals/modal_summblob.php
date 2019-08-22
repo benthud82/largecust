@@ -12,16 +12,7 @@
 
                 // set product property values
                 $summblob_post->blob_blob = $_POST['text_summblob'];
-//    $summblob_post->price = $_POST['price'];
-                // create the product
-                if ($summblob_post->post_summblob()) {
-                    echo "<div class='alert alert-success'>Product was created.</div>";
-                }
-
-                // if unable to create the product, tell the user
-                else {
-                    echo "<div class='alert alert-danger'>Unable to create product.</div>";
-                }
+                $summblob_post->post_summblob();
             }
             ?>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-horizontal" id="post_summblob">
@@ -29,7 +20,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Action Summary:</label>
                         <div class="col-md-9">
-                            <textarea rows="5" placeholder="" class="form-control" id="text_summblob" name="text_summblob" tabindex="1">testtesttest</textarea>
+                            <textarea autofocus rows="5" placeholder="" class="form-control" id="text_summblob" name="text_summblob" tabindex="1"></textarea>
                         </div>
                     </div>
                 </div>
@@ -44,3 +35,8 @@
     </div>
 </div>
 
+<script>
+    $('#tgl_modal_summblob').on('shown.bs.modal', function () {
+        $(this).find('textarea[name="text_summblob"]').focus();
+    });
+</script>

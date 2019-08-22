@@ -9,12 +9,18 @@ class Report_list {
     public $report_id;
     public $report_title;
     public $report_desc;
+    public $report_imgpath;
+    public $report_modal;
+    public $modal_id;
+    public $modal_name;
+    public $modal_buttontext;
+    protected $table_name_join = "reports_modal";
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
-    // used by select drop-down list
+    //used for checkbox list of reports to include
     function read_list() {
         //select all data
         $query = "SELECT
@@ -30,18 +36,7 @@ class Report_list {
         return $stmt_list;
     }
 
-}
-
-class Report_display extends Report_list {
-
-    public $report_imgpath;
-    public $report_modal;
-    public $modal_id;
-    public $modal_name;
-    public $modal_buttontext;
-    protected $table_name_join = "reports_modal";
-
-    // used by select drop-down list
+    //Main display of description and images of reports
     function read_display() {
         //select all data
         $query = "SELECT
