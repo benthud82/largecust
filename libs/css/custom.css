@@ -54,3 +54,7 @@ pre { font-family: "Josefin Sans"; font-size: 13px; font-style: normal; font-var
 .modal-title{float: left;}
 .modal-header .close{float: right;}
 .control-label{float: left;}
+
+.btn_toggle{
+    cursor: pointer;
+}

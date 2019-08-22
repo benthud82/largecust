@@ -1,5 +1,7 @@
-$(document).on("click", "#tgl_modal_summblob", function (e) {
-    $('#modal_summblob').modal('toggle');
+$(document).on("click", ".btn_toggle", function (e) {
+    debugger;
+    var modalid = $(this).attr('data-modalid');
+    $('#' + modalid).modal('toggle');
 });
 
 if (window.history.replaceState) {

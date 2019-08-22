@@ -1,10 +1,10 @@
-<div id="modal_summblob" class="modal fade " role="dialog">
+<div id="modal_top3" class="modal fade " role="dialog">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Enter Action Taken this Quarter</h4>
+                <h4 class="modal-title">Top 3 Accounts</h4>
             </div>
             <?php
             
@@ -26,7 +26,7 @@
                     $nameErr = "";
                     // put them in a select drop-down
                     echo "<div class='form-group col-sm-3'>";
-                    echo "<select class='form-control' name='qtr_id' id='qtr_id' autofocus>";
+                    echo "<select class='form-control' name='qtr_id'>";
                     echo "<option>Select quarter...</option>";
 
                     while ($row_qtr = $stmt_qtr->fetch(PDO::FETCH_ASSOC)) {
@@ -55,3 +55,7 @@
         </div>
     </div>
 </div>
+
+<script>
+
+</script>

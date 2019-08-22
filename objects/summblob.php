@@ -15,21 +15,6 @@ class Summary_blob {
         $this->conn = $db;
     }
 
-    // read old summary blobs
-    function read_blobs() {
-        //select all data
-        $query = "SELECT
-                    idsummary_blob, blob_date, blob_blob, blob_qtr
-                FROM
-                    " . $this->table_name . "
-                ORDER BY
-                    blob_date desc";
-
-        $stmt_summblob = $this->conn->prepare($query);
-        $stmt_summblob->execute();
-        return $stmt_summblob;
-    }
-
     //post blob to table
     function post_summblob() {
 
@@ -44,8 +29,8 @@ class Summary_blob {
         // posted values
         $this->blob_blob = htmlspecialchars(strip_tags($this->blob_blob));
         $this->blob_qtr = htmlspecialchars(strip_tags($this->blob_qtr));
-        
-        if($this->blob_qtr == 'Select quarter...'){
+
+        if ($this->blob_qtr == 'Select quarter...') {
             return false;
         }
 

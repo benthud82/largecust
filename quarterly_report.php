@@ -18,10 +18,6 @@ $reportsummblob = new Summary_blob($db);
 $summblob_post = new Summary_blob($db);
 $quarters = new Quarters($db);
 
-//call read method in Report class
-$stmt_list = $reportlist->read_list();
-$stmt_display = $reportdisplay->read_display();
-$stmt_summblob = $reportsummblob->read_blobs();
 ?>
 
 
@@ -32,6 +28,7 @@ $stmt_summblob = $reportsummblob->read_blobs();
         <p class="h3"><strong>Select Reports to Include:</strong></p>
         <form>
             <?php
+            $stmt_list = $reportlist->read_list();
             //loop through and create checkbox options
             while ($row_list = $stmt_list->fetch(PDO::FETCH_ASSOC)) {
                 extract($row_list);
@@ -48,6 +45,7 @@ $stmt_summblob = $reportsummblob->read_blobs();
 
         <?php
         //loop through and create checkbox options
+        $stmt_display = $reportdisplay->read_display();
         while ($row_display = $stmt_display->fetch(PDO::FETCH_ASSOC)) {
             extract($row_display);
             ?>
@@ -68,7 +66,7 @@ $stmt_summblob = $reportsummblob->read_blobs();
                     <div class="col-sm-12">
                         <?php
                         if ($report_modal == 1) {
-                            echo "<div class='btn btn-danger pull-right' id='tgl_{$modal_name}'>{$modal_buttontext}</div>";
+                            echo "<div class='btn_toggle btn btn-danger pull-right' id='tgl_{$modal_name}' data-modalid='{$modal_name}'>{$modal_buttontext}</div>";
                         }
                         ?>
                     </div>
@@ -81,7 +79,11 @@ $stmt_summblob = $reportsummblob->read_blobs();
     </div>
 
     <!--modal includes-->
-    <?php include 'modals/modal_summblob.php' ?>;
+    <?php 
+        include 'modals/modal_summblob.php'; 
+        include 'modals/modal_top3.php'; 
+    
+    ?>
 </div>
 
 <script>

@@ -43,7 +43,7 @@ class Report_list {
                     report_id, report_title, report_desc, report_imgpath, report_modal, modal_id, modal_name, modal_buttontext
                 FROM
                     " . $this->table_name . "
-                        JOIN   " . $this->table_name_join . "
+                        LEFT JOIN   " . $this->table_name_join . " on qtr_report_id = report_id
                 ORDER BY
                     report_id";
 
