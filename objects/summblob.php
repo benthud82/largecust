@@ -58,8 +58,7 @@ class Summary_blob {
         $stmt_blobpost->bindParam(":blob_qtr", $this->blob_qtr);
 
         if ($stmt_blobpost->execute()) {
-
-            
+            return true;
         } else {
             return false;
         }

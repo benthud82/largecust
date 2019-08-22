@@ -5,6 +5,7 @@ include 'layout_header.php';
 include_once 'config/database.php';
 include_once 'objects/report_options.php';
 include 'objects/summblob.php';
+include 'objects/quarters.php';
 
 // get database connection
 $database = new Database();
@@ -15,11 +16,13 @@ $reportlist = new Report_list($db);
 $reportdisplay = new Report_list($db);
 $reportsummblob = new Summary_blob($db);
 $summblob_post = new Summary_blob($db);
+$quarters = new Quarters($db);
 
 //call read method in Report class
 $stmt_list = $reportlist->read_list();
 $stmt_display = $reportdisplay->read_display();
 $stmt_summblob = $reportsummblob->read_blobs();
+
 ?>
 
 
