@@ -1,5 +1,4 @@
 $(document).on("click", ".btn_toggle", function (e) {
-    debugger;
     var modalid = $(this).attr('data-modalid');
     $('#' + modalid).modal('toggle');
 });
@@ -12,3 +11,15 @@ $(document).on("click", ".checkbox_hideshow", function (e) {
     var displayid = 'displaydiv_' + this.id;
     this.checked ? $('#' + displayid).show(500) : $('#' + displayid).hide(500); //time for show
 });
+
+function confirm_salesplan(arg) {
+    debugger;
+    //where to place check or x
+    var modalid = arg.getAttribute('id');
+    //value to lookup
+    var val_salesplan = arg.value;
+    
+    
+    //add post here
+    
+}

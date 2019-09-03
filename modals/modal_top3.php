@@ -22,7 +22,7 @@
                     <div class="row margin_btm_formrow">
                         <label for="top3_1" class="col-sm-2 control-label">Salesplan 1</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="top3_1" placeholder="">
+                            <input type="text" class="form-control" id="top3_1" placeholder="" onkeyup="confirm_salesplan(this);">
                         </div>
                     </div>
                     <div class="row margin_btm_formrow">
