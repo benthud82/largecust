@@ -8,14 +8,14 @@
 }
 
 /* some changes in bootstrap modal */
-.modal-body {
+/*.modal-body {
     padding: 20px 20px 0px 20px !important;
     text-align: center !important;
 }
 
 .modal-footer{
     text-align: center !important;
-}
+}*/
 
 .border_separator_left {
     border-left:  thick solid #cccccc;
@@ -57,4 +57,13 @@ pre { font-family: "Josefin Sans"; font-size: 13px; font-style: normal; font-var
 
 .btn_toggle{
     cursor: pointer;
+    float: right;
+}
+
+.small_text_input{
+    max-width: 100px;
+}
+
+.margin_btm_formrow{
+    margin-bottom: 5px;
 }

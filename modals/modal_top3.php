@@ -7,7 +7,6 @@
                 <h4 class="modal-title">Top 3 Accounts</h4>
             </div>
             <?php
-            
             // if the form was submitted - PHP OOP CRUD Tutorial
             if ($_POST) {
                 $summblob_post->blob_blob = $_POST['text_summblob'];
@@ -17,45 +16,30 @@
                 $summblob_post->post_summblob();
             }
             ?>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-horizontal" id="post_summblob">
-                <div class="modal-body">
 
-                    <?php
-                    // read the quarters from the database
-                    $stmt_qtr = $quarters->select_qtr();
-                    $nameErr = "";
-                    // put them in a select drop-down
-                    echo "<div class='form-group col-sm-3'>";
-                    echo "<select class='form-control' name='qtr_id'>";
-                    echo "<option>Select quarter...</option>";
-
-                    while ($row_qtr = $stmt_qtr->fetch(PDO::FETCH_ASSOC)) {
-                        extract($row_qtr);
-                        echo "<option value='{$qtr_name}'>{$qtr_name}</option>";
-                    }
-
-                    echo "</select></div>";
-                    ?>
-
-
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Action Summary:</label>
-                        <div class="col-md-9">
-                            <textarea autofocus rows="5" placeholder="" class="form-control" id="text_summblob" name="text_summblob" tabindex="1"></textarea>
+            <div class="modal-body">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-horizontal" id="post_summblob">
+                    <div class="row margin_btm_formrow">
+                        <label for="top3_1" class="col-sm-2 control-label">Salesplan 1</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="top3_1" placeholder="">
                         </div>
                     </div>
-                </div>
-
-                <div class="modal-footer">
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg pull-left" name="btn_post_summblob" id="btn_post_summblob">Enter Action</button>
+                    <div class="row margin_btm_formrow">
+                        <label for="top3_1" class="col-sm-2 control-label">Salesplan 2</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="top3_2" placeholder="">
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="row margin_btm_formrow">
+                        <label for="top3_1" class="col-sm-2 control-label">Salesplan 3</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="top3_3" placeholder="">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
-<script>
-
-</script>

@@ -17,7 +17,6 @@ $reportdisplay = new Report_list($db);
 $reportsummblob = new Summary_blob($db);
 $summblob_post = new Summary_blob($db);
 $quarters = new Quarters($db);
-
 ?>
 
 
@@ -61,36 +60,32 @@ $quarters = new Quarters($db);
                         <img src="<?php echo $report_imgpath ?>" style="width:100%;">
                     </div>
                 </div>
+
+
                 <div class="row">
-                    <!--include modal if necessary-->
-                    <div class="col-sm-12">
-                        <?php
-                        if ($report_modal == 1) {
-                            echo "<div class='btn_toggle btn btn-danger pull-right' id='tgl_{$modal_name}' data-modalid='{$modal_name}'>{$modal_buttontext}</div>";
-                        }
-                        ?>
+                    <div class="col-sm-4">
+                        <div class="in-middle">
+                            <?php
+                            if ($report_modal == 1) {
+                                echo "<div class='btn_toggle btn btn-danger pull-right' id='tgl_{$modal_name}' data-modalid='{$modal_name}'>{$modal_buttontext}</div>";
+                            }
+                            ?>
+
+                        </div>
                     </div>
                 </div>
             </div>
-
         <?php } ?>
 
 
     </div>
 
     <!--modal includes-->
-    <?php 
-        include 'modals/modal_summblob.php'; 
-        include 'modals/modal_top3.php'; 
-    
+    <?php
+    include 'modals/modal_summblob.php';
+    include 'modals/modal_top3.php';
     ?>
 </div>
-
-<script>
-
-</script>
-
-</script>
 
 <?php
 include_once "layout_footer.php";
