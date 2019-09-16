@@ -15,11 +15,19 @@ $(document).on("click", ".checkbox_hideshow", function (e) {
 function confirm_salesplan(arg) {
     debugger;
     //where to place check or x
-    var modalid = arg.getAttribute('id');
+    var conf_id = arg.getAttribute('conf-id');
     //value to lookup
     var val_salesplan = arg.value;
-    
-    
+
+
     //add post here
-    
+    $.ajax({
+        url: 'post/check_salesplan.php',
+        type: 'POST',
+        dataType: 'html',
+        data: {val_salesplan: val_salesplan},
+        success: function (result) {
+            $("#" + conf_id).html(result);
+        }
+    });
 }

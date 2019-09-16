@@ -22,21 +22,31 @@
                     <div class="row margin_btm_formrow">
                         <label for="top3_1" class="col-sm-2 control-label">Salesplan 1</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="top3_1" placeholder="" onkeyup="confirm_salesplan(this);">
+                            <input style="text-transform: uppercase;" type="text" class="form-control" id="top3_1" placeholder="" onkeyup="confirm_salesplan(this);" conf-id="conf_sp1">
+                        </div>
+                        <div class="col-sm-3">
+                            <span id="conf_sp1">X</span>
                         </div>
                     </div>
                     <div class="row margin_btm_formrow">
-                        <label for="top3_1" class="col-sm-2 control-label">Salesplan 2</label>
+                        <label for="top3_2" class="col-sm-2 control-label">Salesplan 2</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="top3_2" placeholder="">
+                            <input style="text-transform: uppercase;" type="text" class="form-control" id="top3_2" placeholder="" onkeyup="confirm_salesplan(this);" conf-id="conf_sp2">
+                        </div>
+                        <div class="col-sm-3">
+                            <span id="conf_sp2">X</span>
                         </div>
                     </div>
                     <div class="row margin_btm_formrow">
-                        <label for="top3_1" class="col-sm-2 control-label">Salesplan 3</label>
+                        <label for="top3_3" class="col-sm-2 control-label">Salesplan 3</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="top3_3" placeholder="">
+                            <input  style="text-transform: uppercase;" type="text" class="form-control" id="top3_3" placeholder="" onkeyup="confirm_salesplan(this);" conf-id="conf_sp3">
+                        </div>
+                        <div class="col-sm-3">
+                            <span id="conf_sp3">X</span>
                         </div>
                     </div>
+
 
                 </form>
             </div>
