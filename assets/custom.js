@@ -18,8 +18,14 @@ function confirm_salesplan(arg) {
     var modalid = arg.getAttribute('id');
     //value to lookup
     var val_salesplan = arg.value;
-    
-    
     //add post here
-    
+ $.ajax({
+                url: 'globaldata/table_forecastaccuracy.php',
+                data: {userid: userid},
+                type: 'POST',
+                dataType: 'html',
+                success: function (ajaxresult) {
+                    $("#table_forecastacc").html(ajaxresult);
+                }
+            });
 }
