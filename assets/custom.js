@@ -15,7 +15,7 @@ $(document).on("click", ".checkbox_hideshow", function (e) {
 function confirm_salesplan(arg) {
     debugger;
     //where to place check or x
-    var modalid = arg.getAttribute('id');
+    var conf_id = arg.getAttribute('conf-id');
     //value to lookup
     var val_salesplan = arg.value;
     //add post here
