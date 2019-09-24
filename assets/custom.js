@@ -18,16 +18,14 @@ function confirm_salesplan(arg) {
     var conf_id = arg.getAttribute('conf-id');
     //value to lookup
     var val_salesplan = arg.value;
-
-
     //add post here
-    $.ajax({
-        url: 'post/check_salesplan.php',
-        type: 'POST',
-        dataType: 'html',
-        data: {val_salesplan: val_salesplan},
-        success: function (result) {
-            $("#" + conf_id).html(result);
-        }
-    });
+ $.ajax({
+                url: 'globaldata/table_forecastaccuracy.php',
+                data: {userid: userid},
+                type: 'POST',
+                dataType: 'html',
+                success: function (ajaxresult) {
+                    $("#table_forecastacc").html(ajaxresult);
+                }
+            });
 }
