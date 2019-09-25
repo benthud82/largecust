@@ -13,7 +13,7 @@ $whsearray = array(2, 3, 6, 7, 9);
 foreach ($whsearray as $whse) {
 
 //Items currently on BO
-    $sqlbo = $aseriesconn->prepare("SELECT WRSWHS,WRSITM,WRSONR,WRSONH,WRSBOQ FROM HSIPCORDTA.NPFWRS WHERE WRSWHS = $whse and WRSONR + WRSONH + WRSBOQ > 0");
+    $sqlbo = $aseriesconn->prepare("SELECT WRSWHS,WRSITM,WRSONR,WRSONH,WRSBOQ FROM HSIPCORDTA.NPFWRS WHERE WRSWHS = $whse and WRSONR + WRSONH + WRSBOQ > 0 and WRSAVL = ' '");
     $sqlbo->execute();
 //    $arraybo = $sqlbo->fetchAll(PDO::FETCH_ASSOC);
 
